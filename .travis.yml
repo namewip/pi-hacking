@@ -1,18 +1,23 @@
 language: python
 python:
-  - "pypy3"
+- pypy3
 install:
-  - sudo apt-get update -qq
-  - sudo apt-mark hold apt apt-utils cron dpkg dpkg-dev iptables login mount openssh-server postgresql* ssh sudo resolvconf rsyslog sysvinit* ubuntu-minimal upstart util-linux 
-  - sudo apt-get upgrade -y g++
-  - sudo apt-get install -y coreutils libmpfr-dev wget
+- sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+- sudo apt-get update -qq
+- sudo apt-mark hold apt apt-utils cron dpkg dpkg-dev iptables login mount openssh-server
+  postgresql* ssh sudo resolvconf rsyslog sysvinit* ubuntu-minimal upstart util-linux
+- sudo apt-get install -y coreutils g++-4.8 libmpfr-dev wget
 before_script:
-  - cd cpp
-  - g++ -std=c++11 -Wall -O3 calc.cpp -lmpfr -lgmp
-  - echo "b1ef9dd187215b9997a060588f66d56b08e278b8  pi-sample.txt" > pi-sample.txt.sha1
-  - wget https://gist.githubusercontent.com/z2s8/d93faee96fb08fb6e217/raw/05f9a6798327f704a45f5115b741feb5a771016b/pi-sample.txt
-  - sha1sum -c pi-sample.txt.sha1
+- cd cpp
+- g++-4.8 -std=c++11 -Wall -O3 calc.cpp -lmpfr -lgmp
+- echo "b1ef9dd187215b9997a060588f66d56b08e278b8  pi-sample.txt" > pi-sample.txt.sha1
+- wget https://gist.githubusercontent.com/z2s8/d93faee96fb08fb6e217/raw/05f9a6798327f704a45f5115b741feb5a771016b/pi-sample.txt
+- sha1sum -c pi-sample.txt.sha1
 script:
-  - time ./a.out > ./pi-calced.txt
+- time ./a.out > ./pi-calced.txt
 after_script:
-  - python ../digits_precision pi-sample.txt pi-calced
+- python ../digits_precision pi-sample.txt pi-calced
+notifications:
+  email: false
+  slack:
+    secure: fvXMXQFfKDt8+mX5eIk+T2Yg0LBFCOkA3H/clM/O2uDa74Arl4FtVWjs61jXHCLs182Kx3M6Zty4NgwunmqTB+erw3vY/RAmN2WExHKJI4RaGSln1rzIQ3WAcm8lSH/PoodU549AOG3JUxrnmZo1rYpJyD6cqby0vIfzF72hki8=
