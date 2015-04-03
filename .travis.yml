@@ -8,7 +8,7 @@ install:
   - sudo apt-get install -y coreutils libmpfr-dev wget
 before_script:
   - cd cpp
-  - g++ -std=c++14 -Wall -O3 calc.cpp -lmpfr -lgmp
+  - g++ -std=c++11 -Wall -O3 calc.cpp -lmpfr -lgmp
   - echo "b1ef9dd187215b9997a060588f66d56b08e278b8  pi-sample.txt" > pi-sample.txt.sha1
   - wget https://gist.githubusercontent.com/z2s8/d93faee96fb08fb6e217/raw/05f9a6798327f704a45f5115b741feb5a771016b/pi-sample.txt
   - sha1sum -c pi-sample.txt.sha1
