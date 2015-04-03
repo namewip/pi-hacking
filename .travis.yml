@@ -3,6 +3,7 @@ python:
   - "pypy3"
 install:
   - sudo apt-get update -qq
+  - sudo apt-mark hold apt apt-utils cron dpkg dpkg-dev iptables login mount openssh-server postgresql* ssh sudo resolvconf rsyslog sysvinit* ubuntu-minimal upstart util-linux 
   - sudo apt-get upgrade -y g++
   - sudo apt-get install -y coreutils libmpfrc++-dev wget
 before_script:
