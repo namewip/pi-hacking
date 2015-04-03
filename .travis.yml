@@ -16,7 +16,7 @@ before_script:
 script:
 - time ./a.out > ./pi-calced.txt
 after_script:
-- python ../digits_precision pi-sample.txt pi-calced
+- python ../digit_precision pi-sample.txt pi-calced
 notifications:
   email: false
   slack:

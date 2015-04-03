@@ -1,8 +1,6 @@
 #include <iostream>
 #include "mpreal.h"
 
-using namespace mpfr;
-
 mpfr::mpreal fact(int n) {
 	return (n == 0 || n == 1) ? 1 : fact(n - 1) * n;
 }
