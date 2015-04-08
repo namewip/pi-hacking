@@ -14,9 +14,11 @@ before_script:
 - wget https://gist.githubusercontent.com/z2s8/d93faee96fb08fb6e217/raw/05f9a6798327f704a45f5115b741feb5a771016b/pi-sample.txt
 - sha1sum -c pi-sample.txt.sha1
 script:
-- time ./a.out > ./pi-calced.txt
+- time ./a.out > ./pi-calced-cpp.txt
+- time ./a.out > ./pi-calced-py3.txt
 after_script:
-- python ../digit_precision.py pi-sample.txt pi-calced.txt
+- python ../digit_precision.py pi-sample.txt pi-calced-cpp.txt
+- python ../digit_precision.py pi-sample.txt pi-calced-py3.txt
 notifications:
   email: false
   slack:
