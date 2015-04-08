@@ -15,7 +15,7 @@ before_script:
 - sha1sum -c pi-sample.txt.sha1
 script:
 - time ./a.out > ./pi-calced-cpp.txt
-- time ../py3/calc.py > ./pi-calced-py3.txt
+- time python ../py3/calc.py > ./pi-calced-py3.txt
 after_script:
 - python ../digit_precision.py pi-sample.txt pi-calced-cpp.txt
 - python ../digit_precision.py pi-sample.txt pi-calced-py3.txt
