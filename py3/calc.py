@@ -1,7 +1,7 @@
 import decimal
 import math
 
-prec = 7
+prec = 15
 decimal.getcontext().prec = 2500 * prec
 
 

@@ -21,7 +21,7 @@ mpfr::mpreal calcit(int maxiter) {
 
 int main(int argc, char *argv[]) {
 
-	const int prec = 7;
+	const int prec = 15;
 
 	mpfr::mpreal::set_default_prec(50 * 50 * prec);
 	std::cout.precision(50 * 75 * prec);
