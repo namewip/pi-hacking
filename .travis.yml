@@ -6,7 +6,7 @@ install:
 - sudo apt-get update -qq
 - sudo apt-mark hold apt apt-utils cron dpkg dpkg-dev iptables login mount openssh-server
   postgresql* ssh sudo resolvconf rsyslog sysvinit* ubuntu-minimal upstart util-linux
-- sudo apt-get install -y coreutils g++-4.8 libmpfr-dev wget
+- sudo apt-get install -y coreutils g++-4.8 libmpfr-dev ruby2.0  wget
 before_script:
 - cd cpp
 - g++-4.8 -std=c++11 -Wall -O3 calc.cpp -lmpfr -lgmp
@@ -16,9 +16,11 @@ before_script:
 script:
 - time ./a.out > ./pi-calced-cpp.txt
 - time python3 ../py3/calc.py > ./pi-calced-py3.txt
+- time ruby2.0 ../rb/calc.rb > ./pi-calced-rb.txt
 after_script:
 - python ../digit_precision.py pi-sample.txt pi-calced-cpp.txt
 - python ../digit_precision.py pi-sample.txt pi-calced-py3.txt
+- python ../digit_precision.py pi-sample.txt pi-calced-rb.txt
 notifications:
   email: false
   slack:
