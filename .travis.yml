@@ -16,9 +16,11 @@ before_script:
 script:
 - time ./a.out > ./pi-calced-cpp.txt
 - time python3 ../py3/calc.py > ./pi-calced-py3.txt
+- time python2 ../py3/calc.py > ./pi-calced-py2.txt
 after_script:
 - python ../digit_precision.py pi-sample.txt pi-calced-cpp.txt
 - python ../digit_precision.py pi-sample.txt pi-calced-py3.txt
+- python ../digit_precision.py pi-sample.txt pi-calced-py2.txt
 notifications:
   email: false
   slack:
