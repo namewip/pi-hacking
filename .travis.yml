@@ -23,3 +23,5 @@ notifications:
   email: false
   slack:
     secure: fvXMXQFfKDt8+mX5eIk+T2Yg0LBFCOkA3H/clM/O2uDa74Arl4FtVWjs61jXHCLs182Kx3M6Zty4NgwunmqTB+erw3vY/RAmN2WExHKJI4RaGSln1rzIQ3WAcm8lSH/PoodU549AOG3JUxrnmZo1rYpJyD6cqby0vIfzF72hki8=
+    on_success: change
+    on_failure: change
