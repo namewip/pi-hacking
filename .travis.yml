@@ -18,7 +18,7 @@ before_script:
 script:
 - time ./a.out > ./pi-calced-cpp.txt
 - time python3 ../py3/calc.py > ./pi-calced-py3.txt
-- time ruby2.0 ../rb/calc.rb > ./pi-calced-rb.txt
+- time ruby ../rb/calc.rb > ./pi-calced-rb.txt
 after_script:
 - python ../digit_precision.py pi-sample.txt pi-calced-cpp.txt
 - python ../digit_precision.py pi-sample.txt pi-calced-py3.txt
