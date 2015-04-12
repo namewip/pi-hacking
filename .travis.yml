@@ -7,7 +7,7 @@ install:
 - sudo apt-mark hold apt apt-utils cron dpkg dpkg-dev iptables login mount openssh-server
   postgresql* ssh sudo resolvconf rsyslog sysvinit* ubuntu-minimal upstart util-linux
 - sudo apt-get install -y coreutils g++-4.8 libmpfr-dev wget
-- rvm install ruby-2.2
+- rvm install ruby-2.2 --verify-downloads 1
 - rvm use ruby-2.2
 before_script:
 - cd cpp
